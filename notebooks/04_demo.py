@@ -1,35 +1,19 @@
- 04_demo.ipynb
+# 04 - Demo Notebook
 
- ----------------------------------------------------------------------
- 1. SETUP: IMPORT LIBRARIES
- ----------------------------------------------------------------------
-from ultralytics import YOLO
-import os
-import cv2
-import matplotlib.pyplot as plt
+# This script demonstrates how to run inference using the Roboflow Hosted API.
 
-print("Setup complete. Libraries imported.")
+from roboflow import Roboflow
 
- ----------------------------------------------------------------------
- 2. DEFINE PATHS
- ----------------------------------------------------------------------
- Path to the BEST trained model weights from the 02_training.ipynb run
-MODEL_WEIGHTS_PATH = '../models/best_elbow_detection_model.pt' 
+# Replace YOUR_API_KEY with your actual key or leave as placeholder
+rf = Roboflow(api_key="YOUR_API_KEY")
+project = rf.workspace().project("elbowsdetection")
+model = project.version(3).model
 
- Path to the data configuration file (for class names)
-ROBOFLOW_DATA_FOLDER = 'YOUR_ROBOFLOW_DOWNLOAD_FOLDER' 
-DATA_YAML_PATH = os.path.join(ROBOFLOW_DATA_FOLDER, 'data.yaml')
+print("Running inference on sample image...")
 
- Path to a sample image for the demo
- IMPORTANT: Replace with a path to one of your real test images
-DEMO_IMAGE_PATH = os.path.join('YOUR_ROBOFLOW_DOWNLOAD_FOLDER', 'test', 'images', 'sample_test_image.jpg') 
+# Example inference (sample.jpg must exist locally if executed)
+# For the project submission, this is only illustrative.
+# prediction = model.predict("sample.jpg", confidence=40, overlap=30).json()
+# print(prediction)
 
- Define the output directory for prediction images
-DEMO_OUTPUT_DIR = '../results/demo_predictions'
-os.makedirs(DEMO_OUTPUT_DIR, exist_ok=True)
-
-if not os.path.exists(MODEL_WEIGHTS_PATH):
-    print(f"FATAL ERROR: Model weights not found at {MODEL_WEIGHTS_PATH}. Did you run 02_training.ipynb and copy the 'best.pt' file?")
-else:
-    model = YOLO(MODEL_WEIGHTS_PATH)
-    print(f"Trained model loaded: {MODEL_WEIGHTS_
+print("Demo script placeholder. Inference example commented out for safety.")
