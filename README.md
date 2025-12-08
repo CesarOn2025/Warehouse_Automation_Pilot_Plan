@@ -25,6 +25,8 @@ https://app.roboflow.com/warehouseautomationpilotproject
 
 Project Video
 
+https://drive.google.com/uc?id=1GVLm_pgGgVPMiiwoxpShMvyyAIpFk1Jq&export=download
+
 Technologies Used
 
 - Roboflow – Dataset creation, annotation, and training  
